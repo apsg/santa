@@ -100,4 +100,25 @@ class Path
 
         return end($this->path);
     }
+
+    public function count() : int
+    {
+        return count($this->path);
+    }
+
+    public function distanceTo(Point $point) : int
+    {
+        $distance = 0;
+
+        reset($this->path);
+
+        foreach ($this->path as $path) {
+            $distance++;
+            if ($point->equals($path)) {
+                return $distance;
+            }
+        }
+
+        return -1;
+    }
 }
