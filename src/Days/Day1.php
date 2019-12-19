@@ -1,4 +1,5 @@
 <?php
+
 namespace Apsg\Santa\Days;
 
 class Day1
