@@ -9,13 +9,28 @@ class Day2
     {
         $program = explode(',', static::INPUT);
 
-        $position = 0;
-        while ($position >= 0) {
-            $position = self::run($program, $position);
-        }
+        $result = self::program($program);
 
-        echo implode(',', $program) . PHP_EOL;
-        echo $program[0];
+        echo $result;
+    }
+
+    public static function part2()
+    {
+        $program = explode(',', static::INPUT);
+        for ($noun = 0; $noun < 100; $noun++) {
+            for ($verb = 0; $verb < 100; $verb++) {
+
+                $newProgram = $program;
+                $newProgram[1] = $noun;
+                $newProgram[2] = $verb;
+
+                if (self::program($newProgram) == 19690720) {
+                    echo 100 * $noun + $verb;
+
+                    return;
+                }
+            }
+        }
     }
 
     public static function run(array &$program, int $position) : int
@@ -39,5 +54,15 @@ class Day2
         }
 
         return $position + 4;
+    }
+
+    protected static function program(array $program)
+    {
+        $pointer = 0;
+        while ($pointer >= 0) {
+            $pointer = self::run($program, $pointer);
+        }
+
+        return $program[0];
     }
 }
