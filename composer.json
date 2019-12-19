@@ -14,5 +14,8 @@
     },
     "scripts": {
         "run": "php src/run.php"
+    },
+    "require": {
+        "php": "^7"
     }
 }
