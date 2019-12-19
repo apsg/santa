@@ -1,4 +1,5 @@
 <?php
+
 namespace Apsg\Santa\Days;
 
 use Apsg\Santa\Days\Day3\Path;

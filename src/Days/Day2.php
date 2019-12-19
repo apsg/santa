@@ -1,4 +1,5 @@
 <?php
+
 namespace Apsg\Santa\Days;
 
 class Day2
@@ -19,7 +20,6 @@ class Day2
         $program = explode(',', static::INPUT);
         for ($noun = 0; $noun < 100; $noun++) {
             for ($verb = 0; $verb < 100; $verb++) {
-
                 $newProgram = $program;
                 $newProgram[1] = $noun;
                 $newProgram[2] = $verb;
