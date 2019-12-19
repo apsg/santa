@@ -7,4 +7,8 @@ abstract class AbstractDay
     {
         print_r($item . PHP_EOL);
     }
+
+    abstract public static function part1();
+
+    abstract public static function part2();
 }
