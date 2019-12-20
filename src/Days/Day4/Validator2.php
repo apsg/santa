@@ -7,22 +7,21 @@ class Validator2 extends Validator
     {
         $regex = '/([0]{2})|([1]{2})|([2]{2})|([3]{2})|([4]{2})|([5]{2})|([6]{2})|([7]{2})|([8]{2})|([9]{2})/';
 
-        $matches = [];
-        preg_match_all($regex, (string)$number, $matches);
+        $matches2 = [];
+        preg_match_all($regex, (string)$number, $matches2);
 
-        if (empty($matches) || empty($matches[0])) {
+        if (empty($matches2) || empty($matches2[0])) {
             return false;
         }
 
-        foreach ($matches[0] as $match) {
-            $digit = $match / 11;
-            if (preg_match("/[$digit]{3,}/", (string)$number)) {
-                return false;
-            }
+        foreach ($matches2[0] as $match) {
+            $digit = substr($match, 0, 1);
 
-            return true;
+            if (substr_count((string)$number, $digit) == 2) {
+                return true;
+            }
         }
 
-        return true;
+        return false;
     }
 }
